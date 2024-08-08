@@ -1,7 +1,7 @@
 Option Explicit
 
 Dim xlApp, xlBook, path
-path = "C:\Users\emeas\Desktop\MacroWB.xlsm"
+path = "C:\Users\emeas\Desktop\AP_email.xlsm"
 
 Set xlApp = CreateObject("Excel.Application")
 xlApp.Visible = False
