@@ -38,8 +38,8 @@ Set OutlookMail = OutlookApp.CreateItem(0)
 EmailSubject = Cells(Evaluate("=COUNTA(G:G)"), 17).Value
 DisplayEmail = True
 
-Email_To = "accountspayable@berkeleyca.gov"
-Email_CC = "DColbert@berkeleyca.gov;" & "pwfleet@berkeleyca.gov;"
+Email_To = "AP@gmail.com"
+Email_CC = "Supervisor@gmail.com;" & "FleetGroup@gmail.com;"
 Email_Body = "<Body style=font-size:11pt;font-family:Calibri>" & "Hello AP," & "<br><br>" & "Please process the attached invoice." & "<br><br>" & "Thank you." & "</Body>"
 
 'Display email
