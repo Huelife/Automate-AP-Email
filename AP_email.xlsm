@@ -1,0 +1,58 @@
+Sub AP_email()
+
+'Declare variables
+Dim FilePath1 As String
+Dim FilePath2 As String
+Dim FileName1 As String
+Dim FileName2 As String
+Dim FileName3 As String
+
+'Declare variables
+Dim oFSO As Object
+Dim oFolder As Object
+Dim oFile As Object
+
+'Declare variables
+Dim EmailSubject As String
+Dim Email_To As String, Email_CC As String, Email_Body As String
+Dim DisplayEmail As Boolean
+Dim OutlookApp As Object, OutlookMail As Object
+
+'Get file name
+FilePath1 = "C:\Users\emeas\Desktop\TO AP\"
+FilePath2 = "C:\Users\emeas\Desktop\Sent\"
+Set oFSO = CreateObject("Scripting.FileSystemObject")
+Set oFolder = oFSO.GetFolder(FilePath1)
+For Each oFile In oFolder.Files
+FileName1 = FilePath1 & oFile.Name
+FileName2 = FilePath1 & Cells(Evaluate("=COUNTA(G:G)"), 16).Value & ".pdf"
+FileName3 = FilePath2 & Cells(Evaluate("=COUNTA(G:G)"), 16).Value & ".pdf"
+Name FileName1 As FileName2
+Next
+
+'Create Outlook obj
+Set OutlookApp = CreateObject("Outlook.Application")
+Set OutlookMail = OutlookApp.CreateItem(0)
+
+'Create email information
+EmailSubject = Cells(Evaluate("=COUNTA(G:G)"), 17).Value
+DisplayEmail = True
+
+Email_To = "accountspayable@berkeleyca.gov"
+Email_CC = "DColbert@berkeleyca.gov;" & "pwfleet@berkeleyca.gov;"
+Email_Body = "<Body style=font-size:11pt;font-family:Calibri>" & "Hello AP," & "<br><br>" & "Please process the attached invoice." & "<br><br>" & "Thank you." & "</Body>"
+
+'Display email
+With OutlookMail
+.Display
+.To = Email_To
+.CC = Email_CC
+.Subject = EmailSubject
+.HTMLBody = Email_Body & .HTMLBody
+.Attachments.Add FileName2
+End With
+
+'Moving file to different folder
+Name FileName2 As FileName3
+
+End Sub
