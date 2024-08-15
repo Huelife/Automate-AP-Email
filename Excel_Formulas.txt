@@ -1,0 +1,7 @@
+1) =IF(B2>0,XLOOKUP(B2,'VENDOR LIST - 8.9.24'!A:A,'VENDOR LIST - 8.9.24'!B:B),"")
+2) =IF(B2>0,"PW","")
+3) =IF(I2>0,ARRAYTOTEXT(UNIQUE(FILTER('Purchase Orders FY25 - 8.9.24'!A:A,'Purchase Orders FY25 - 8.9.24'!G:G='Invoices uploaded'!B2))),"")
+4) =IF(I2>0,I2=IF(COUNTIF(J2,"*"&I2&"*"),I2,""),"")
+5) =IF(G2>0,TEXT(TODAY(),"M/D/YY"),"")
+6) =CONCATENATE(IF(C2=D2,D2,CONCATENATE(C2,"(",D2,")")),"_",G2,"_",TEXT(O2,"M.D.YY"),"_","$",H2)
+7) =CONCATENATE(E2," - ",IF(C2=D2,D2,CONCATENATE(C2,"(",D2,")"))," - ",G2," - ",O2," - ","PO# ",I2)
