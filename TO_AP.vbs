@@ -7,7 +7,7 @@ Set xlApp = CreateObject("Excel.Application")
 xlApp.Visible = False
 Set xlBook = xlApp.Workbooks.Open(path, 0, True)
 
-xlApp.Run "'" & path & "'!AP_email.AP_email"
+xlApp.Run "'" & path & "'!AP_emails.Compile_emails"
 
 xlBook.Close
 xlApp.Quit
