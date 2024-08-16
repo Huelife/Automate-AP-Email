@@ -1,4 +1,4 @@
-Sub AP_email()
+Sub Compile_emails()
 
 'Declare variables
 Dim FilePath1 As String
@@ -23,6 +23,7 @@ FilePath1 = "C:\Users\emeas\Desktop\TO AP\"
 FilePath2 = "C:\Users\emeas\Desktop\Sent\"
 Set oFSO = CreateObject("Scripting.FileSystemObject")
 Set oFolder = oFSO.GetFolder(FilePath1)
+
 For Each oFile In oFolder.Files
 FileName1 = FilePath1 & oFile.Name
 FileName2 = FilePath1 & Cells(Evaluate("=COUNTA(G:G)"), 16).Value & ".pdf"
